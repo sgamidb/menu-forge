@@ -1,9 +1,14 @@
 package meal
 
 type Meal struct {
-	Name string
+	Name    string
+	hasMeat bool
 }
 
-func New(s string) *Meal {
-	return &Meal{Name: s}
+func (m *Meal) IsVegan() bool {
+	return m.hasMeat == false
+}
+
+func New(name string, hasMeat bool) *Meal {
+	return &Meal{Name: name, hasMeat: hasMeat}
 }
