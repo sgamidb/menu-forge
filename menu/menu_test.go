@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestCreateWeeklyMenu_AsDailyMenuPerDay(t *testing.T) {
+func TestCreateWeeklyMenu_OneDailyMenuPerDay(t *testing.T) {
 	meals := []meal.Meal{
 		meal.New("Pasta with meatball", true),
 		meal.New("Quinoa with butternut", false),
@@ -30,9 +30,29 @@ func TestCreateWeeklyMenu_AsDailyMenuPerDay(t *testing.T) {
 	}
 
 	weekMenu := CreateWeekMenu(meals)
+	days := []string{"monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"}
+	for _, day := range days {
+		dayMenu := weekMenu.GetDayMenu(day)
+		if dayMenu == nil {
+			t.Errorf("%s dayMenu is missing", day)
+			return
+		}
 
-	mondayMenu := weekMenu.Monday()
-	if mondayMenu.lunch.Name != "" {
+		if dayMenu.lunch.Name == "" {
+			t.Errorf("lunch for %s is missing", day)
+		}
 
+		if dayMenu.dinner.Name == "" {
+			t.Errorf("dinner for %s is missing", day)
+		}
 	}
+}
+
+func TestCreateWeeklyMenu_DontHaveTheSameMenuTwiceInTheWeek(t *testing.T) {
+	t.Errorf("something failed")
+}
+
+func TestCreateWeeklyMenu_DailyMenuDoesntHaveMeatForDinner(t *testing.T) {
+	t.Errorf("something failed")
+
 }
