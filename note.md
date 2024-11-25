@@ -1,7 +1,7 @@
 The application must create a menu for the week.
 
-- [ ] A weekly menu must contain a menu for each day.
-- [ ] A daily menu must contain a lunch and a dinner.
+- [x] A weekly menu must contain a menu for each day.
+- [x] A daily menu must contain a lunch and a dinner.
 - [x] A meal with meat is not vegan
 - [x] A meal without meat is vegan
 - [ ] lunch must be a meat meal

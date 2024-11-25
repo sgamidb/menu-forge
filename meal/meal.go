@@ -9,6 +9,6 @@ func (m *Meal) IsVegan() bool {
 	return m.hasMeat == false
 }
 
-func New(name string, hasMeat bool) *Meal {
-	return &Meal{Name: name, hasMeat: hasMeat}
+func New(name string, hasMeat bool) Meal {
+	return Meal{Name: name, hasMeat: hasMeat}
 }
